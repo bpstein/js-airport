@@ -22,6 +22,13 @@ describe("Airport", function() {
 		expect(flyingPlane.flying).toHaveBeenCalled();
 	});
 
+	it("Reduce the number of planes on take off", function() {
+		airport.land(flyingPlane);
+		flyingPlane.isLandedStatus.and.returnValue(true);
+		airport.launch(flyingPlane);
+		expect(airport.docked).toEqual([]);
+	});
+
 	it("Should not land a landed plane", function() {
 		expect(function(){ 
 			airport.land(landedPlane); 

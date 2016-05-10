@@ -18,6 +18,7 @@ Airport.prototype.launch = function(plane){
   	throw new Error("This plane is not in the airport!");
   } else {
   	plane.flying();
+    this.docked.pop(plane);
   };
 };
 
